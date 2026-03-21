@@ -1,34 +1,56 @@
-EXPLICACION DEL ANALIZADOR LEXICO
+# Analizador Léxico - ANTLR
 
-1. QUE ES:
-   - Un programa que reconoce tokens en código fuente
-   - Toma como entrada un archivo con código
-   - Identifica: palabras reservadas, identificadores, números, operadores, símbolos
+## Información
 
-2. COMPONENTES:
-   - AnalizadorLexer.g4: Define QUE es cada token
-   - LexerDriver.java: Lee el archivo y procesa los tokens
-   - AnalizadorLexer.java: Generado por ANTLR (máquina de estados)
+**Analizador léxico** que divide código fuente en tokens (palabras reservadas, identificadores, números, operadores, símbolos).
 
-3. TOKENS RECONOCIDOS:
-   ✓ Palabras reservadas: if, else, for, print, int, asdfg
-   ✓ Identificadores: máximo 10 caracteres, comienzan con letra
-   ✓ Números: 0-100
-   ✓ Operadores: +, -, *, /, :=, >=, <=, >, <, =, <>
-   ✓ Símbolos: {, }, [, ], (, ), ,, ;, ..
+### Archivos Principales
 
-4. EJEMPLO:
-   Entrada: if { x := 10; }
-   Salida:
-   Palabra_reservada : if
-   Simbolo : {
-   Identificador : x
-   Operador_Asignacion : :=
-   Numero : 10
-   Simbolo : ;
-   Simbolo : }
+- `AnalizadorLexer.g4` - Definición de tokens
+- `LexerDriver.java` - Programa principal
+- `ejemplos/codigo.txt` - Archivo de entrada
 
+### Tokens Soportados
 
-   ![alt text](image.png)
+| Tipo | Ejemplos |
+|------|----------|
+| Palabras reservadas | if, else, for, print, int, asdfg |
+| Identificadores | máx 10 caracteres, comienzan con letra |
+| Números | 0-100 |
+| Operadores | +, -, *, /, :=, >=, <=, >, <, =, <> |
+| Símbolos | { } [ ] ( ) , ; .. |
+
+---
+
+## Comandos
+
+### Compilar
+
+```bash
+cd lexer
+javac -cp ".:../ANTLR/antlr-4.13.1-complete.jar" LexerDriver.java
+```
+
+**Carpetas generadas:**
+- `lexer/` - Contiene archivos `.class` compilados:
+  - `LexerDriver.class`
+  - `AnalizadorLexer.class`
+  - Otros archivos `.class` auxiliares
+
+### Ejecutar
+
+```bash
+java -cp ".:../ANTLR/antlr-4.13.1-complete.jar" LexerDriver
+```
+
+**Salida en consola:** Lista de tokens reconocidos del archivo `ejemplos/codigo.txt`
+
+**Carpetas utilizadas:**
+- `lexer/generated/` - Contiene archivos ANTLR generados:
+  - `AnalizadorLexer.java`
+  - `AnalizadorLexer.interp`
+  - `AnalizadorLexer.tokens`
+- `ejemplos/` - Contiene:
+  - `codigo.txt` (archivo de entrada a analizar)
 
    
