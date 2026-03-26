@@ -1,0 +1,23 @@
+if x >= 5 {
+    print x ;
+}
+
+int contador := 0 ;
+contador := contador + 1 ;
+
+for i := 1 .. 100 {
+    resultado := i * 2 ;
+}
+
+miVariable <= 50 ;
+otro_var > 25 ;
+
+numero_largo_invalido = 5 ;
+variable = 200 ;
+
+asdfg valor ;
+123
+x + y - z * w / 2
+x = y <= z
+( [ { } ] )
+jmfksdfhsdfhdsfsdfdsfsdf
